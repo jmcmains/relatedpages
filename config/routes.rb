@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :products
   resources :relationships, only: [:create, :destroy]
     resources :related_exercises, only: [:create, :destroy]
+    
+    root 'products#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
