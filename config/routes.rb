@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   resources :exercises
 
-  resources :products
+  resources :products do
+    member do
+      get 'edit_name'
+      post 'update_name'
+    end 
+  end
   resources :relationships, only: [:create, :destroy]
-    resources :related_exercises, only: [:create, :destroy]
+  resources :related_exercises, only: [:create, :destroy]
     
     root 'products#index'
   # The priority is based upon order of creation: first created -> highest priority.

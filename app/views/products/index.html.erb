@@ -12,7 +12,7 @@
   <tbody>
     <% @products.sort_by(&:name).each do |product| %>
       <tr>
-        <td><%= product.name %></td>
+        <td id="name_<%= product.id %>"><%= link_to product.name, edit_name_product_path(product), remote: true %></td>
         <td><%= product.sku %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>

@@ -1,0 +1,1 @@
+$("#name_<%= @product.id %>").html("<%= @product.name %>");

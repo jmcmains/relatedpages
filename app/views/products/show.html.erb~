@@ -1,9 +1,9 @@
 <div style="width:90%;margin-left:auto;margin-right:auto;">
 <div style="float:left">
-<%= button_to("< Previous", product_path(@product.previous_product), class: "btn btn-primary") if !@product.previous_product.nil? %>
+<%= button_to("< Previous", product_path(@product.previous_product), method: :get, class: "btn btn-primary") if !@product.previous_product.nil? %>
 </div>
 <div style="float:right">
-<%= button_to("Next >", product_path(@product.next_product), class: "btn btn-primary") if !@product.next_product.nil? %>
+<%= button_to("Next >", product_path(@product.next_product), method: :get, class: "btn btn-primary") if !@product.next_product.nil? %>
 </div>
 </div>
 <p id="notice"><%= notice %></p>
@@ -12,12 +12,12 @@
   <strong>Sku:</strong>
   <%= @product.sku %>
 </p>
-<div style="width:100%;display:block;float:left;">
-  <h2>Related Products:</h2>
+<div style="width:auto;display:block;margin-left:auto;margin-right:auto;">
+  <h3>Related Products:</h3>
     <% Product.all.sort_by(&:name).each do |follower| %>
       <div id="follow_form_<%= follower.id %>" style="display:inline">
         <% if @product == follower %>
-          <button type="button" class="btn btn-default" disabled="disabled"  style="display:inline;width:100px;vertical-align: middle;float: left;height: 50px;width: 113px;overflow: hidden;margin: 5px;text-overflow: ellipsis;white-space: normal;"><%= @product.name %></button>
+          <button type="button" class="btn btn-default" disabled="disabled"  style="display:inline;width:100px;vertical-align: middle;float: left;height: 100px;width: 113px;overflow: hidden;margin: 5px;text-overflow: ellipsis;white-space: normal;"><%= @product.name %></button>
         <% else %>
           <% if @product.related?(follower) %>
             <%= render 'unfollow', follower: follower, followed: @product %>
@@ -29,7 +29,7 @@
 <% end %>
 </div>
 <div style="width:100%;display:block;float:left;">
-<h2>Related Exercises:</h2>
+<h3>Related Exercises:</h3>
 <% Exercise.all.sort_by(&:name).each do |exercise| %>
   <div id="exercise_form_<%= exercise.id %>" style="display:inline">
     <% if @product.related?(exercise) %>
