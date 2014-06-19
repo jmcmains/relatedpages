@@ -1,0 +1,14 @@
+class CreateRelatedProducts < ActiveRecord::Migration
+  def change
+    create_table :related_products do |t|
+      t.integer :follower_id
+      t.integer :followed_id
+
+      t.timestamps
+      
+      add_index :related_products, :follower_id
+      add_index :related_products, :followed_id
+    add_index :related_products, [:follower_id, :followed_id], unique: true
+    end
+  end
+end

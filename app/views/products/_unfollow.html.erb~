@@ -1,0 +1,4 @@
+<%= form_for(follower.relationships.find_by(followed_id: followed.id),
+             html: { method: :delete, class: "form-inline", style: "display:inline"}, remote: true) do |f| %>
+  <%= f.submit "- #{follower.name}", class: "btn btn-success", style: "display:inline" %>
+<% end %>

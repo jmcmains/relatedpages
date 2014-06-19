@@ -1,0 +1,4 @@
+$('#follow_form_<%= @follower.id %>').html('<%=j render 'products/follow', follower: @follower, followed: @followed %>');
+
+
+
