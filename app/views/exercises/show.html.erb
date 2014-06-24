@@ -12,7 +12,7 @@
   <h3>Related Products:</h3>
     <% Product.all.sort_by(&:name).each do |product| %>
       <div id="product_form_<%= product.id %>" style="display:inline">
-          <% if product.related?(@exercisse) %>
+          <% if product.related?(@exercise) %>
             <%= render 'unfollow', product: product, exercise: @exercise %>
           <% else %>
             <%= render 'follow', product: product, exercise: @exercise %>
