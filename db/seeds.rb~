@@ -14,3 +14,4 @@ CSV.foreach(Rails.root.join('db/products.csv'), headers: true, col_sep: "\t") do
 end
 
 
+puts "done"

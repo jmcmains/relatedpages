@@ -1,3 +1,18 @@
+@import "bootstrap";
+
+
+.btn1 {
+display:inline;
+width:150px;
+vertical-align: middle;
+float: left;
+height: 75px;
+overflow: hidden;
+margin: 5px;
+text-overflow: ellipsis;
+white-space: normal;
+}
+
 body {
   background-color: #fff;
   color: #333;

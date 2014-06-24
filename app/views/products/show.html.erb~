@@ -17,7 +17,7 @@
     <% Product.all.sort_by(&:name).each do |follower| %>
       <div id="follow_form_<%= follower.id %>" style="display:inline">
         <% if @product == follower %>
-          <button type="button" class="btn btn-default" disabled="disabled"  style="display:inline;width:100px;vertical-align: middle;float: left;height: 100px;width: 113px;overflow: hidden;margin: 5px;text-overflow: ellipsis;white-space: normal;"><%= @product.name %></button>
+          <button type="button" class="btn btn1" disabled="disabled"><%= @product.name %></button>
         <% else %>
           <% if @product.related?(follower) %>
             <%= render 'unfollow', follower: follower, followed: @product %>

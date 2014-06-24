@@ -7,10 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'csv'
 
-puts "Importing skus..."
+puts "Importing exercises..."
 
-CSV.foreach(Rails.root.join('db/products.csv'), headers: true, col_sep: "\t") do |row|
-  Product.where(name: row[1]).first_or_create.update_attributes(name: row[1], sku: row[0], image: row[2])
+CSV.foreach(Rails.root.join('db/exercises.csv'), headers: true, col_sep: "\t") do |row|
+  Exercise.where(name: row[0]).first_or_create.update_attributes(name: row[0])
 end
 
 
