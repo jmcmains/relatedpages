@@ -1,0 +1,4 @@
+<%= form_for(product.related_exercises.find_by(exercise_id: exercise.id),
+             html: { method: :delete, class: "form-inline", style: "display:inline"}, remote: true) do |f| %>
+  <%= f.submit "#{product.name}", class: "btn btn-success btn1" %>
+<% end %>

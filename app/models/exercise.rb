@@ -13,4 +13,12 @@ class Exercise < ActiveRecord::Base
   def unrelate!(product)
     related_exercises.find_by(product_id: user.id).destroy
   end
+  
+  def next_exercise
+    Exercise.where("name > ?",name).order("name ASC").first
+  end
+
+  def previous_exercise
+    Exercise.where("name < ?",name).order("name DESC").first
+  end
 end

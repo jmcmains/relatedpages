@@ -1,0 +1,5 @@
+<%= form_for(product.related_exercise.build(exercise_id: exercise.id), remote: true, html: {class: "form-inline", style: "display:inline"}) do |f| %>
+  <%= f.hidden_field :product_id %>
+    <%= f.hidden_field :exercise_id %>
+  <%= f.submit "#{product.name}", class: "btn btn-default btn1" %>
+<% end %>

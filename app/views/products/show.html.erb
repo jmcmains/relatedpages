@@ -28,15 +28,4 @@
     </div>
 <% end %>
 </div>
-<div style="width:100%;display:block;float:left;">
-<h3>Related Exercises:</h3>
-<% Exercise.all.sort_by(&:name).each do |exercise| %>
-  <div id="exercise_form_<%= exercise.id %>" style="display:inline">
-    <% if @product.related?(exercise) %>
-      <%= render 'unfollow_exercise', exercise: exercise, product: @product %>
-    <% else %>
-      <%= render 'follow_exercise', exercise: exercise, product: @product %>
-    <% end %>
-  </div>
-<% end %>
-</div>
+
