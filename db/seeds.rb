@@ -10,7 +10,7 @@ require 'csv'
 puts "Importing exercises..."
 
 CSV.foreach(Rails.root.join('db/exercises.csv'), headers: true, col_sep: "\t") do |row|
-  Exercise.where(name: row[0]).first_or_create.update_attributes(name: row[0])
+  Exercise.where(name: row[0]).first_or_create.update_attributes(name: row[0], url_key: row[1])
 end
 
 
