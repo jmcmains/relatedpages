@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :products do
     member do
-      geit 'edit_name'
+      get 'edit_name'
       post 'update_name'
     end 
   end

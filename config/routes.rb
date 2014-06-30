@@ -6,6 +6,10 @@ Rails.application.routes.draw do
       get 'edit_name'
       post 'update_name'
     end 
+    collection do
+    	get 'related_exercises_csv'
+    	get 'related_products_csv'
+    end
   end
   resources :relationships, only: [:create, :destroy]
   resources :related_exercises, only: [:create, :destroy]

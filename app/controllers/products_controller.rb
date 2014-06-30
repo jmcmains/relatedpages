@@ -27,6 +27,32 @@ class ProductsController < ApplicationController
   def update_name
 
   end
+	require 'csv'
+	
+	def related_products_csv
+	  csv = CSV.generate(col_sep: "\t") do |csv|
+			csv << ["Product SKU", "Related Products"]
+			Product.all.sort_by(&:sku).each do |product|
+				  csv << [product.sku, product.related_products.map(&:sku).join(",")]
+			end
+		end
+		file ="related_products.txt"
+		File.open(file, "w"){ |f| f << csv }
+		send_file( file, type: 'text/csv')
+	end
+	
+	def related_exercises_csv
+	  csv = CSV.generate(col_sep: "\t") do |csv|
+			csv << ["Product SKU", "Related Exercise"]
+			Product.all.sort_by(&:sku).each do |product|
+				  csv << [product.sku, product.exercises.map(&:url_key).join(",")]
+			end
+		end
+		file ="related_exercises.txt"
+		File.open(file, "w"){ |f| f << csv }
+		send_file( file, type: 'text/csv')
+	end
+
 
   # POST /products
   # POST /products.json
