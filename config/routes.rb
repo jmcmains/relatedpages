@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :exercises
+  resources :exercises do
+  	collection do
+    	get 'related_products_csv'
+    end
+  end
+  
 
   resources :products do
     member do
